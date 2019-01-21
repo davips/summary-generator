@@ -45,7 +45,7 @@ object Main extends App {
 
       val (iniv, oriv, endv1c, inie, orie, ende1c) = parse("1c-1.off.log")
       val (_, _, endvsw, _, _, endesw) = parse("sw-1.off.log")
-      val (_, _, endvon, _, _, endeon) = parse("1c-999999.on.log")
+      val (_, _, endvon, _, _, endeon) = parse("1c-999999.on.5000.log")
 
       def mark(Max: Double, typ: String)(v: Double) = v match {
         case Max if Max >= 1000 => s"\\text$typ{${Max.round}}"
