@@ -49,16 +49,16 @@ object Main extends App {
 
       def mark(Max: Double, typ: String)(v: Double) = v match {
         case Max if Max >= 1000 => s"\\text$typ{${Max.round}}"
-        case Max => s"\\text$typ{${(10 * Max).round / 10d}}"
+        case Max => s"\\text$typ{$Max}"
         case x if x >= 1000 => x.round
-        case x => (10 * x).round / 10d
+        case x => x
       }
 
-      val vs = List(iniv, oriv, endv1c, endvsw, endvon)
+      val vs = List(iniv, oriv, endv1c, endvsw, endvon) map (x => (10 * x).round / 10d)
       val Maxv = vs.min
       val vs2 = vs map mark(Maxv, "it")
 
-      val es = List(inie, orie, ende1c, endesw, endeon)
+      val es = List(inie, orie, ende1c, endesw, endeon) map (x => (10 * x).round / 10d)
       val Maxe = es.min
       val es2 = es map mark(Maxe, "bf")
 
